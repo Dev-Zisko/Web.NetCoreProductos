@@ -1,0 +1,47 @@
+﻿@model IEnumerable<WebTest.Areas.Productos.Models.Productos>
+
+@{
+    ViewData["Title"] = "Productos";
+}
+
+<h1>Productos</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.pro_nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pro_descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pro_precio)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.pro_nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pro_descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pro_precio)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.pro_codigo">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.pro_codigo">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.pro_codigo">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
